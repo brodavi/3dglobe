@@ -2,9 +2,9 @@
 
 body,
 html {
-	margin: 0;
-	padding: 0;
-	font-family: 'Open Sans', sans-serif;
+  margin: 0;
+  padding: 0;
+  font-family: 'Open Sans', sans-serif;
 }
 
 canvas {
@@ -12,35 +12,35 @@ canvas {
 }
 
 .dg.a {
-	margin-top: 10px;
-	min-width: 300px;
+  margin-top: 10px;
+  min-width: 300px;
 }
 
 .app-wrapper {
-	position: fixed;
-	left: 0;
-	top: 0;
+  position: fixed;
+  left: 0;
+  top: 0;
 }
 
 .markers {
-	position: relative;
-	padding: 0;
-	list-style-type: none;
+  position: relative;
+  padding: 0;
+  list-style-type: none;
 }
 
 .marker {
-	color: white;
-	font-weight: 300;
-	font-size: 14px;
+  color: white;
+  font-weight: 300;
+  font-size: 14px;
 }
 
 .marker:before {
-	content: '';
-	width: 30px;
-	height: 30px;
-	border-radius: 50%;
-	background: white;
-	position: absolute;
-	left: 50%;
-	top: -50%;
+  content: '';
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: white;
+  position: absolute;
+  left: 50%;
+  top: -50%;
 }

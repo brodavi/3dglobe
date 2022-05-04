@@ -1,4 +1,4 @@
-const app = new App({ setup, animate, preload });
+const app = new App({ setup, animate });
 
 window.onload = app.init;
 window.onresize = app.handleResize;
@@ -6,31 +6,6 @@ window.onresize = app.handleResize;
 const loader = new THREE.TextureLoader();
 const controls = {}
 const data = {}
-
-
-async function preload() {
-  try {
-    // const gridUrl = '../assets/data/grid.json';
-    // const gridRes = await fetch(gridUrl);
-    // const grid = await gridRes.json();
-    // data.grid = grid;
-
-    // const countryUrl = '../assets/data/countries.json';
-    // const countryRes = await fetch(countryUrl);
-    // const countries = await countryRes.json();
-    // data.countries = countries;
-
-    // const connectionsUrl = '../assets/data/connections.json';
-    // const connectionsRes = await fetch(connectionsUrl);
-    // const connections = await connectionsRes.json();
-    // data.connections = getCountries(connections, countries);    
-
-    return true;
-  } catch(error) {
-    console.log(error);
-  }
-}
-
 
 function setup(app) {
   const controllers = [];
@@ -153,6 +128,7 @@ function animate(app) {
 
   if(animations.rotateGlobe) {
     groups.globe.rotation.y -= 0.0025;
+    groups.globe.rotation.x += 0.0005;
   }
 }
 

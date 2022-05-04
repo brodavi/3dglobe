@@ -1,6 +1,5 @@
 class App {
-  constructor({animate, setup, preload}) {
-    this.preload = preload;
+  constructor({animate, setup}) {
     this.animate = animate;
     this.setup = setup;
     window.app = this;
@@ -11,11 +10,6 @@ class App {
     this.initRenderer();
     this.initCamera();
     this.initControls();
-    this.initStats();
-
-    if(this.preload) {
-      await this.preload();
-    }
 
     this.render();
     this.update();
@@ -27,7 +21,7 @@ class App {
 
   initRenderer = () => {
     this.renderer = new THREE.WebGLRenderer({alpha: true});
-    this.renderer.setClearColor(0x000000, 1.0);
+    this.renderer.setClearColor(0x0C1354, 1.0);
     this.renderer.setSize(window.innerWidth, window.innerHeight);
     this.renderer.setPixelRatio(window.devicePixelRatio * 1.5);
     this.renderer.shadowMap.enabled = true;
@@ -45,23 +39,14 @@ class App {
     this.controls = new THREE.OrbitControls(this.camera, this.renderer.domElement);
   }
 
-  initStats = () => {
-    this.stats = new Stats();
-    this.stats.setMode(0);
-    this.stats.domElement.style.position = 'absolute';
-    this.stats.domElement.style.right = '10px';
-    this.stats.domElement.style.bottom = '10px';
-    document.body.appendChild( this.stats.domElement );
-  }
-
   render = () => {
     this.setup(this);
     document.body.appendChild(this.renderer.domElement);
   }
 
+  // REQUESTANIMATIONFRAME IS HERE
   update = () => {
     this.animate(this);
-    this.stats.update();
     this.controls.update();
     this.renderer.render(this.scene, this.camera);
     requestAnimationFrame(this.update);
@@ -69,6 +54,7 @@ class App {
 
   addControlGui = callback => {
     var gui = new dat.GUI();
+    dat.GUI.toggleHide();
     callback(gui);
   }
 
